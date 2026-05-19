@@ -7,3 +7,8 @@
 4. Selección de asiento
 5. Datos de pago: tipo de tarjeta, informacion de tarjeta (titular, codigo, número, fecha de vencimiento)
 
+## Salidas
+1. Listado de vuelos disponibles: vuelos que coincidan con la busqueda del usuario
+2. Mapa de asientos: muestra asientos disponibles para elegir
+3. Comprobante de pago
+4. Tarjeta de embarque
