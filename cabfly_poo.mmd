@@ -1,0 +1,99 @@
+classDiagram
+
+    class Usuario {
+        -str nombrecompleto
+        -str dni 
+        -str mail 
+        -str telefono
+        -str contraseña
+
+
+    }
+
+
+    class Reserva {
+        -Vuelo vueloprogramado
+        -dateTime fechacreacion
+        -float montototal
+        -string estadoReserva
+    
+
+        +generarReserva()
+        +verificarVigencia()
+        +reprogramarVuelo()
+    }
+
+
+
+    class Pasajero {
+        -str nombrepasajero
+        -str dnipasajero
+        -str telefonopasajero
+        -str mailpasajero
+    }
+
+
+    class Vuelo {
+        -str ciudadorigen
+        -Destino destino
+        -dateTime fechayhoradevuelo
+        -str tipodeavion
+        -str puertaembarque
+
+    }
+
+
+    class Asiento {
+        -str tipodeasiento
+        -str numerodeasiento
+        
+        +elegirasiento()
+    }
+
+
+    class Destino {
+        -str pais
+        -str ciudad
+        -str descripción
+        
+    }
+
+
+    class Pago {
+        -str tipodetarjeta
+        -str infotarjeta
+        -str infodelpago
+        
+        +pagar()
+        +confirmarReserva()
+        +mostrarTarjetaEmbarque()
+    }  
+
+
+    class TarjetaEmbarque {
+        -Pasajero datosPasajero
+        -str codigoQR
+        -str numeroasiento
+        -Vuelo vuelo
+    }
+
+
+    class CambioReserva {
+        -str nuevafecha
+        -str infonuevovuelo
+
+        +generarNuevaTarjetaembarque()
+        +enviarTarjetaPorMail()
+        +cobrarDiferencia()
+    }
+
+
+    Usuario "1" --> "1" Reserva
+    Reserva "1"--> "1" Vuelo
+    Vuelo "1" --> "1" Destino
+    Vuelo "1" --> "1.." Pasajero
+    Pasajero "1" --> "1" Asiento
+    Pasajero "1" --> "1" TarjetaEmbarque
+    Usuario "1" --> "1" Pago
+    Reserva "1" --> "0.." CambioReserva
+    Pago "1" --> "1.." TarjetaEmbarque
