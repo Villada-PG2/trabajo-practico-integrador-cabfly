@@ -12,3 +12,12 @@
 2. Mapa de asientos: muestra asientos disponibles para elegir
 3. Comprobante de pago
 4. Tarjeta de embarque
+
+
+
+## Frontera
+1. Control en el aeropuerto de los pasajeros (chequeo de pasajes, pasaporte, equipaje, etc)
+2. Asignación de la puerta de embarque específica dentro del aeropuerto
+3. Cumplimiento de leyes fiscales
+
+
