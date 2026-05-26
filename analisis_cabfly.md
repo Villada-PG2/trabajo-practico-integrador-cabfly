@@ -70,4 +70,5 @@
 
 ## Requerimientos no Funcionales
 1. Seguridad: proteger los datos personales (como los de los metodos de pago) de los usuarios
-2. 
+2. Interfaz: que sea llamativa y clara en cuanto a los procesos dentro de la página
+3. Hardware: debe funcionar en cualquier dispositivo, sea computadoras, celulares, tablets, etc.
