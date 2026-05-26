@@ -66,3 +66,8 @@
 14. Reprogramar un vuelo
 15. Cobrar la diferencia de precio si el nuevo vuelo es mas caro
 16. Generar nuevas tarjetas de embarque en caso de reprogramacion
+
+
+## Requerimientos no Funcionales
+1. Seguridad: proteger los datos personales (como los de los metodos de pago) de los usuarios
+2. 
