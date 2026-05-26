@@ -47,3 +47,22 @@
 - 5.2 Mostrar vuelos disponibles para reprogramar
 - 5.3 Calcular la diferencia de precios entre la reserva original y el nuevo vuelo
 - 5.4 Emitir la nueva tarjeta de embarque con los datos actualizados
+
+
+## Requerimientos Funcionales
+1. Registrar el usuario 
+2. Iniciar sesion
+3. Buscar vuelos según criterios de búsqueda
+4. Ver los vuelos que coincidan con los criterios
+5. Registrar los datos de los pasajeros
+6. Elegir asientos con el mapa interactivo
+7. Calcular el precio de la reserva
+8. Generar codigo de reserva
+9. Cancelar la reserva si pasan 48 horas sin pagar
+10. Cargar los datos del metodo de pago
+11. Cambiar el estado de la reserva al pagar
+12. Generar la tarjeta de embarque para cada pasajero
+13. Mandar por mail a cada pasajero la tarjeta de embarque
+14. Reprogramar un vuelo
+15. Cobrar la diferencia de precio si el nuevo vuelo es mas caro
+16. Generar nuevas tarjetas de embarque en caso de reprogramacion
