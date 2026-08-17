@@ -1,4 +1,3 @@
-from operator import gt
 
 from pydantic import BaseModel, EmailStr, Field
 from datetime import datetime
@@ -38,6 +37,12 @@ class Reserva(BaseModel):
         self.vueloprogramado = nuevo_vuelo
 
 
+class CambioReserva(BaseModel):
+    nuevafecha: str = Field(..., min_length=8)
+    infonuevovuelo: str = Field(..., max_length=100)
+    vuelo: Vuelo
+
+
 class Destino(BaseModel):
     pais: str = Field(..., min_length=2, max_length=50)
     ciudad: str = Field(..., min_length=2, max_length=50)
@@ -50,4 +55,29 @@ class Asiento(BaseModel):
 
     def elegirAsiento(self):
         return f"Asiento {self.numeroasiento} ({self.tipoasiento} seleccionado)"
-    
+
+
+class Pasajero(BaseModel):
+    nombre: str = Field(..., min_length=2, max_length=50)
+    dni: str = Field(...,min_length=8, max_length=8)
+    telefono: str = Field(...,min_length=10, max_length=10)
+    mail: EmailStr
+
+
+class Pago(BaseModel):
+    tipotarjeta: str = Field(..., min_length=3, max_length=20)
+    infotarjeta: str = Field(..., min_length=16, max_length=16, pattern=r"^[0-9]{16}$")
+    infopago: str = Field(..., max_length=100)
+
+    def pagar(self):
+        return f"Pago realizado con tarjeta {self.tipotarjeta}. Información de pago: {self.infopago}"
+
+    def confirmarReserva(self):
+        Reserva.estadoReserva = "Pagado"
+
+
+class TarjetaEmbarque(BaseModel):
+    datosPasajero: Pasajero
+    codigoqr: str = Field(..., min_length=10)
+    numeroasiento: str = Field(..., pattern=r"^[A-Z][0-9]{2}$")
+    vuelo: Vuelo
