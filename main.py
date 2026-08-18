@@ -61,10 +61,10 @@ usuario = Usuario(
 
 
 pasajero_1 = Pasajero(
-    nombre="Javier",
+    nombre="Juan",
     dni= "09876543",
     telefono="3516785432",
-    mail="javier@gmail.com"
+    mail="juan.perez@gmail.com"
 )
 
 
@@ -73,4 +73,42 @@ pasajero_2 = Pasajero(
     dni="32165487",
     telefono="3512223689",
     mail="daniela@gmail.com"
+)
+
+
+#ej uso
+
+reserva_juan = Reserva(
+    vueloprogramado=vuelo_cordoba,
+    montototal=355550.00
+)
+print(reserva_juan.generarReserva())
+
+asiento_juan = Asiento(tipoasiento="Ventanilla", numeroasiento="A04")
+print(f"Selección: {asiento_juan.elegirAsiento()}")
+
+pago_juan = Pago(
+    tipotarjeta="Mastercard",
+    infotarjeta="1111222233334444",
+    infopago="Pago aprobado en un unico pago",
+)
+pago_juan.confirmarReserva()
+print(f"Estado despues del pago: {reserva_juan.estadoReserva}")
+
+tarjeta_juan = TarjetaEmbarque(
+    datosPasajero=pasajero_1,
+    codigoqr="QR-COR-2026-004",
+    numeroasiento=asiento_juan.numeroasiento,
+    vuelo=vuelo_cordoba
+)
+
+lista_reservas = []
+lista_reservas.append(
+    {
+        "reserva": reserva_juan,
+        "pasajero": pasajero_1,
+        "asiento": asiento_juan,
+        "tarjeta": tarjeta_juan
+
+    }
 )
