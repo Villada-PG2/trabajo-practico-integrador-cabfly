@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 
 from modelos import (
     Asiento,
+    CambioReserva,
     Destino,
     Pago,
     Pasajero,
@@ -110,5 +111,54 @@ lista_reservas.append(
         "asiento": asiento_juan,
         "tarjeta": tarjeta_juan
 
+    }
+)
+
+
+#reserva daniela
+
+reserva_daniela = Reserva(
+    vueloprogramado=vuelo_bariloche,
+    montototal=555000,
+)
+print(reserva_daniela.generarReserva())
+
+
+asiento_daniela = Asiento(tipoasiento= "Pasillo", numeroasiento="C12")
+print(f"Seleccion: {asiento_daniela.elegirAsiento()}")
+
+
+vuelo_bariloche_nuevo = Vuelo(
+    origen="Buenos Aires",
+    destino="Bariloche",
+    tipodeavion="Airbus 320",
+    puertaembarque="A12",
+    fechayhoravuelo=ahora + timedelta(days=22),
+    telefonopasajero="3512223689"
+)
+
+
+cambio = CambioReserva(
+    nuevafecha=str(vuelo_bariloche_nuevo.fechayhoravuelo),
+    infonuevovuelo="Reprogramacion por trabajo",
+    vuelo=vuelo_bariloche_nuevo,
+)
+
+reserva_daniela.reprogramarVuelo(vuelo_bariloche_nuevo)
+print("Vuelo reprogramado exitosamente")
+
+tarjeta_daniela = TarjetaEmbarque(
+    datosPasajero=pasajero_2,
+    codigoqr="QR-BRC-2026-088",
+    numeroasiento=asiento_daniela.numeroasiento,
+    vuelo=vuelo_bariloche_nuevo,
+)
+
+lista_reservas.append(
+    {
+        "reserva": reserva_daniela,
+        "pasajero": pasajero_2,
+        "asiento": asiento_daniela,
+        "tarjeta": tarjeta_daniela
     }
 )
