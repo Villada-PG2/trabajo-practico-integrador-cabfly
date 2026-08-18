@@ -48,3 +48,29 @@ vuelo_bariloche = Vuelo(
     telefonopasajero="3514449832"
 )
 
+
+# usuarios y pasajeros
+
+usuario = Usuario(
+    nombrecompleto="Juan Perez",
+    dni="12345678",
+    mail="juan.perez@gmail.com",
+    telefono="3514449832",
+    contraseña="juanperez1990"
+)
+
+
+pasajero_1 = Pasajero(
+    nombre="Javier",
+    dni= "09876543",
+    telefono="3516785432",
+    mail="javier@gmail.com"
+)
+
+
+pasajero_2 = Pasajero(
+    nombre="Daniela",
+    dni="32165487",
+    telefono="3512223689",
+    mail="daniela@gmail.com"
+)
